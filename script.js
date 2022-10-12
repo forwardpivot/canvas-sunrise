@@ -4,7 +4,7 @@ sun.width = window.innerWidth;
 sun.height = window.innerHeight;
 
 let xAxis = 0;
-let YAxis = 500;
+let YAxis = sun.height;
 
 function draw() {
     ctx.fillStyle = 'red';
