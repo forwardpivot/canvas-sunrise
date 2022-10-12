@@ -9,9 +9,9 @@ let YAxis = sun.height;
 function draw() {
     ctx.fillStyle = 'red';
     ctx.strokeStyle = 'orange';
-    
+    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.arc(sun.width / 2,YAxis, 25, 0, Math.PI * 2);
+    ctx.arc(sun.width / 2,YAxis, 60, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
