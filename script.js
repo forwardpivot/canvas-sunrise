@@ -44,14 +44,14 @@ function drawWater() {
 }
 
 function animateWater() {
-    ctxWater.clearRect(0,0,waterTop.width,waterTop.height)
-    if (waterToggle == 0) {
-        waterXAxis += 2 * Math.sin(waterMotion);
-        waterToggle++;
-    } else if (waterToggle == 1) {
-        waterXAxis -= 2 * Math.sin(waterMotion);
-        waterToggle--;
-    }
+    // ctxWater.clearRect(0,0,waterTop.width,waterTop.height)
+    // if (waterToggle == 0) {
+    //     waterXAxis += 2 * Math.sin(waterMotion);
+    //     waterToggle++;
+    // } else if (waterToggle == 1) {
+    //     waterXAxis -= 2 * Math.sin(waterMotion);
+    //     waterToggle--;
+    // }
 
     drawWater();
     requestAnimationFrame(animateWater)
