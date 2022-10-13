@@ -1,27 +1,40 @@
 const sun = document.querySelector('#sun');
-const ctx = sun.getContext('2d');
+const ctxSun = sun.getContext('2d');
 sun.width = window.innerWidth;
 sun.height = window.innerHeight;
 
-let xAxis = 0;
-let YAxis = sun.height;
+let sunYAxis = sun.height;
 
-function draw() {
-    ctx.fillStyle = 'red';
-    ctx.strokeStyle = 'orange';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.arc(sun.width / 2,YAxis, 60, 0, Math.PI * 2);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
+const water = document.querySelector('#water');
+const ctxWater = water.getContext('2d');
+water.width = window.innerWidth;
+water.height = window.innerHeight;
+let waterXAxis = 0;
+
+
+
+function drawSun() {
+    ctxSun.fillStyle = 'red';
+    ctxSun.strokeStyle = 'orange';
+    ctxSun.lineWidth = 3;
+    ctxSun.beginPath();
+    ctxSun.arc(sun.width / 2,sunYAxis, 60, 0, Math.PI * 2);
+    ctxSun.closePath();
+    ctxSun.fill();
+    ctxSun.stroke();
 }
 
-function animate() {
-    ctx.clearRect(0,0,sun.width,sun.height);
+function animateSun() {
+    ctxSun.clearRect(0,0,sun.width,sun.height);
 
-    YAxis -= 1;
-    draw();
-    requestAnimationFrame(animate);
+    sunYAxis -= 2;
+    drawSun();
+    requestAnimationFrame(animateSun);
 }
-animate();
+animateSun();
+
+function animateWater() {
+    ctxWater.fillStyle = 'blue';
+    ctxWater.fillRect(waterXAxis,600,water.width,400);
+}
+animateWater();
