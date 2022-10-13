@@ -3,7 +3,7 @@ const ctxSun = sun.getContext('2d');
 sun.width = window.innerWidth;
 sun.height = window.innerHeight;
 
-let sunYAxis = sun.height;
+let sunYAxis = 680;
 
 const water = document.querySelector('#water');
 const ctxWater = water.getContext('2d');
@@ -27,7 +27,7 @@ function drawSun() {
 function animateSun() {
     ctxSun.clearRect(0,0,sun.width,sun.height);
 
-    sunYAxis -= 2;
+    sunYAxis -= 0.7;
     drawSun();
     requestAnimationFrame(animateSun);
 }
