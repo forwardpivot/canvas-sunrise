@@ -18,7 +18,7 @@ function drawSun() {
     ctxSun.strokeStyle = 'orange';
     ctxSun.lineWidth = 3;
     ctxSun.beginPath();
-    ctxSun.arc(sun.width / 2,sunYAxis, 60, 0, Math.PI * 2);
+    ctxSun.arc(sun.width / 2,sunYAxis, 170, 0, Math.PI * 2);
     ctxSun.closePath();
     ctxSun.fill();
     ctxSun.stroke();
