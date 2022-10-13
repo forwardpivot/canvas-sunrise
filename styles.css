@@ -1,6 +1,8 @@
 body {
+    overflow: hidden;
     background: hsla(22, 87%, 54%,0.91) 
 }
+
 
 #waterTop {
     position: absolute;

@@ -9,6 +9,7 @@ const waterTop = document.querySelector('#waterTop');
 const ctxWater = waterTop.getContext('2d');
 waterTop.width = window.innerWidth;
 waterTop.height = window.innerHeight;
+
 let waterXAxis = 0;
 let waterMotion = 1;
 let waterToggle = 0;
@@ -38,19 +39,20 @@ animateSun();
 function drawWater() {
     ctxWater.fillStyle = 'blue';
     ctxWater.beginPath();
-    ctxWater.fillRect(waterXAxis,600,waterTop.width,400);
+    ctxWater.fillRect(waterXAxis,600,waterTop.width,500);
     ctxSun.closePath();
 }
 
 function animateWater() {
     ctxWater.clearRect(0,0,waterTop.width,waterTop.height)
     if (waterToggle == 0) {
-        waterXAxis += 0.9 * Math.sin(waterMotion);
+        waterXAxis += 2 * Math.sin(waterMotion);
         waterToggle++;
     } else if (waterToggle == 1) {
-        waterXAxis -= 0.9 * Math.sin(waterMotion);
+        waterXAxis -= 2 * Math.sin(waterMotion);
         waterToggle--;
     }
+
     drawWater();
     requestAnimationFrame(animateWater)
 }
