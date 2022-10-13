@@ -3,13 +3,15 @@ const ctxSun = sun.getContext('2d');
 sun.width = window.innerWidth;
 sun.height = window.innerHeight;
 
-let sunYAxis = 680;
+let sunYAxis = 800;
 
-const water = document.querySelector('#water');
-const ctxWater = water.getContext('2d');
-water.width = window.innerWidth;
-water.height = window.innerHeight;
+const waterTop = document.querySelector('#waterTop');
+const ctxWater = waterTop.getContext('2d');
+waterTop.width = window.innerWidth;
+waterTop.height = window.innerHeight;
 let waterXAxis = 0;
+let waterMotion = 1;
+let waterToggle = 0;
 
 
 
@@ -33,8 +35,23 @@ function animateSun() {
 }
 animateSun();
 
-function animateWater() {
+function drawWater() {
     ctxWater.fillStyle = 'blue';
-    ctxWater.fillRect(waterXAxis,600,water.width,400);
+    ctxWater.beginPath();
+    ctxWater.fillRect(waterXAxis,600,waterTop.width,400);
+    ctxSun.closePath();
+}
+
+function animateWater() {
+    ctxWater.clearRect(0,0,waterTop.width,waterTop.height)
+    if (waterToggle == 0) {
+        waterXAxis += 0.9 * Math.sin(waterMotion);
+        waterToggle++;
+    } else if (waterToggle == 1) {
+        waterXAxis -= 0.9 * Math.sin(waterMotion);
+        waterToggle--;
+    }
+    drawWater();
+    requestAnimationFrame(animateWater)
 }
 animateWater();

@@ -2,7 +2,7 @@ body {
     background: hsla(22, 87%, 54%,0.91) 
 }
 
-#water {
+#waterTop {
     position: absolute;
     top: 0;
     left: 0;
