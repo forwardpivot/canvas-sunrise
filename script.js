@@ -34,25 +34,18 @@ function animateSun() {
 animateSun();
 
 function drawWater() {
+    //ctxWater.clearRect(0,0,waterTop.width,waterTop.height);
     ctxWater.fillStyle = 'blue';
     ctxWater.beginPath();
     ctxWater.fillRect(0,600,waterTop.width,500);
-    ctxSun.closePath();
-}
-drawWater();
-
-function drawBoat() {
     const boat = new Image();
-    const ctxBoat = boat.getContext('2d')
-    boat.width = window.innerWidth;
-    boat.height = window.innerHeight;
-    ctxBoat.clearRect(0,0,boat.width,boat.height);
-
     boat.onload = () => {
         ctxWater.drawImage(boat,boatXAxis,500);
     }
-    boatXAxis += -2;
+    ctxSun.closePath();
+
+    boatXAxis += -1;
     boat.src = 'boat.png';
-    requestAnimationFrame(drawBoat);
+    requestAnimationFrame(drawWater);
 }
-drawBoat();
+drawWater();
