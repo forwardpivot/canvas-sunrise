@@ -43,6 +43,11 @@ drawWater();
 
 function drawBoat() {
     const boat = new Image();
+    const ctxBoat = boat.getContext('2d')
+    boat.width = window.innerWidth;
+    boat.height = window.innerHeight;
+    ctxBoat.clearRect(0,0,boat.width,boat.height);
+
     boat.onload = () => {
         ctxWater.drawImage(boat,boatXAxis,500);
     }
