@@ -10,7 +10,7 @@ const ctxWater = waterTop.getContext('2d');
 waterTop.width = window.innerWidth;
 waterTop.height = window.innerHeight;
 
-let loopCounter = 0;
+let boatXAxis = 900;
 
 
 function drawSun() {
@@ -27,7 +27,7 @@ function drawSun() {
 function animateSun() {
     ctxSun.clearRect(0,0,sun.width,sun.height);
 
-    sunYAxis -= 0.7;
+    sunYAxis -= 0.5;
     drawSun();
     requestAnimationFrame(animateSun);
 }
@@ -44,10 +44,10 @@ drawWater();
 function drawBoat() {
     const boat = new Image();
     boat.onload = () => {
-        ctxWater.drawImage(boat,900,500);
-        ctxWater.beginPath();
-        
+        ctxWater.drawImage(boat,boatXAxis,500);
     }
+    boatXAxis += -2;
     boat.src = 'boat.png';
+    requestAnimationFrame(drawBoat);
 }
 drawBoat();
