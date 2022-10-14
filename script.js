@@ -10,10 +10,7 @@ const ctxWater = waterTop.getContext('2d');
 waterTop.width = window.innerWidth;
 waterTop.height = window.innerHeight;
 
-let waterXAxis = 0;
-let waterMotion = 1;
-let waterToggle = 0;
-
+let loopCounter = 0;
 
 
 function drawSun() {
@@ -39,21 +36,18 @@ animateSun();
 function drawWater() {
     ctxWater.fillStyle = 'blue';
     ctxWater.beginPath();
-    ctxWater.fillRect(waterXAxis,600,waterTop.width,500);
+    ctxWater.fillRect(0,600,waterTop.width,500);
     ctxSun.closePath();
 }
+drawWater();
 
-function animateWater() {
-    // ctxWater.clearRect(0,0,waterTop.width,waterTop.height)
-    // if (waterToggle == 0) {
-    //     waterXAxis += 2 * Math.sin(waterMotion);
-    //     waterToggle++;
-    // } else if (waterToggle == 1) {
-    //     waterXAxis -= 2 * Math.sin(waterMotion);
-    //     waterToggle--;
-    // }
-
-    drawWater();
-    requestAnimationFrame(animateWater)
+function drawBoat() {
+    const boat = new Image();
+    boat.onload = () => {
+        ctxWater.drawImage(boat,900,500);
+        ctxWater.beginPath();
+        
+    }
+    boat.src = 'boat.png';
 }
-animateWater();
+drawBoat();
