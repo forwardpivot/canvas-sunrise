@@ -38,7 +38,6 @@ function animateSun() {
 animateSun();
 
 function drawWater() {
-    ctxBoat.clearRect(0,0,boatXAxis,500);
     ctxWater.fillStyle = 'blue';
     ctxWater.beginPath();
     ctxWater.fillRect(0,600,waterTop.width,500);
@@ -46,13 +45,11 @@ function drawWater() {
 
     const boatImg = new Image();
     boatImg.onload = () => {
+        ctxBoat.clearRect(117,500,boatXAxis,500);
         ctxBoat.drawImage(boatImg,boatXAxis,500);
-        ctxBoat.beginPath();
-    ctxBoat.fillRect(boatXAxis,500,boat.width,boat.height);
-    ctxBoat.closePath();
     }
     
-    boatXAxis += -1;
+    boatXAxis += -0.7;
     boatImg.src = 'boat.png';
     requestAnimationFrame(drawWater);
 }
